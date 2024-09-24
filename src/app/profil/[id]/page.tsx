@@ -8,6 +8,5 @@ export const metadata = { title: "Detail Profil | vlak"};
 export default function ProfilDetail() {
   return (
       <Typography> detail profil</Typography>
-    
   );
 }
