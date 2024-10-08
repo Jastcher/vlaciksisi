@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import NavBar from "@/components/NavBar";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -14,8 +15,17 @@ export default function RootLayout({
   return (
     <html lang="sk">
       <body>
-        {children}
+
+        <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
+          <main style={{ flexGrow: 1 }}>
+            {children}
+          </main>
+        </div>
+        
+        <NavBar/>
+
       </body>
+
     </html>
   );
 }
