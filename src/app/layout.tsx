@@ -16,13 +16,15 @@ export default function RootLayout({
     <html lang="sk">
       <body>
 
-        <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
+        <div style={{ minHeight: '90vh', display: 'flex', flexDirection: 'column' }}>
           <main style={{ flexGrow: 1 }}>
             {children}
           </main>
+
+
         </div>
-        
         <NavBar/>
+        
 
       </body>
 
