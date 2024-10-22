@@ -1,11 +1,14 @@
-import type { Metadata } from "next";
-import NavBar from "@/components/NavBar";
+// src/app/layout.tsx
+
+import { Metadata } from "next";
 import "./globals.css";
+import Navbar from "../components/NavBar";
+import AuthProvider from "../components/AuthProvider";
 
 export const metadata: Metadata = {
-  title: "idevlakpozor",
-  description: "Created by me"
-}
+  title: "vlaciksisi",
+  description: "pozor vlak",
+};
 
 export default function RootLayout({
   children,
@@ -15,19 +18,15 @@ export default function RootLayout({
   return (
     <html lang="sk">
       <body>
-
-        <div style={{ minHeight: '90vh', display: 'flex', flexDirection: 'column' }}>
-          <main style={{ flexGrow: 1 }}>
-            {children}
-          </main>
-
-
-        </div>
-        <NavBar/>
-        
-
+        <AuthProvider>
+          <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
+            <main style={{ flexGrow: 1 }}>
+              {children}
+            </main>
+          </div>
+          <Navbar /> 
+        </AuthProvider>
       </body>
-
     </html>
   );
 }
