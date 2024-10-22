@@ -1,36 +1,53 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Hugo Foltin; IV.B; 1. skupina
 
-## Getting Started
+## linux
+```ls``` -> listne current directory
+```cd``` -> zmeni directory
 
-First, run the development server:
+## npm
+```npm run dev``` -> spusti live server pre development mod
+```npm run build``` -> buildne projekt
+```npm run start``` -> spusti live server buildnuteho projektu
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+```npx create-next-app@latest``` -> vytvori nextjs projekt
+```npm install @mui/material @emotion/react @emotion/styled``` -> nainstaluje material ui
+
+## routing
+```c
+src
+ |- app
+    |- nazov_podstranky    // podstranka
+    |   |- page.tsx        
+    |   |- layout.tsx
+    |- page.tsx            // root stranka
+    |- layout.tsx          // root layout
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- v priehladaci zobrazime podstranku routovanim:
+   ```localhost:3000/nazov_podstranky```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## nextJS
+```<Container>``` = ```<div>```
+```<Typography>``` = text, header
 
-## Learn More
+- V metadata nastavime nazov a description stranky
+   ```export const metadata = { title: "nazov stranky", description: "..."};```
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## GitHub
+   ```git init``` -> inicializacia lokalneho git repository
+   ```git config --global user.name "github meno"``` -> nastavi meno 
+   ```git config --global user.email "github email"``` -> nastavi email
+   ```git branch -m <meno>```-> premenuje branch
+   ```git remote add <meno> <url>```-> nastavi url repository
+   ```git remote -v``` -> zobrazi url repository
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+   ```git add .``` -> prida subory na commit
+   ```git commit -m "sprava commitu"``` -> commitne
+   ```git push``` -> pushne commit na github
+   
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
