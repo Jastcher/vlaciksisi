@@ -19,12 +19,12 @@ export default function RootLayout({
     <html lang="sk">
       <body>
         <AuthProvider>
-          <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
+          <div style={{ minHeight: '95vh', display: 'flex', flexDirection: 'column' }}>
             <main style={{ flexGrow: 1 }}>
               {children}
             </main>
+            <Navbar /> 
           </div>
-          <Navbar /> 
         </AuthProvider>
       </body>
     </html>
