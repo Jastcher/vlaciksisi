@@ -65,7 +65,7 @@ export default function SimpleBottomNavigation() {
         {!session && <BottomNavigationAction label="Registrácia" icon={<AppRegistrationIcon />} />}
         {!session && <BottomNavigationAction label="Prihlásenie" icon={<LoginIcon />} />}
         {session && (
-          <BottomNavigationAction label={session.user.name} icon={<Avatar alt={session.user.name} src={session.user.image} />} />
+          <BottomNavigationAction label={session?.user?.name} icon={<Avatar alt={session?.user?.name} src={session?.user?.image} />} />
         )}
         {session && <BottomNavigationAction label="Odhlásenie" icon={<LogoutIcon />} onClick={() => signOut()} />}
       </BottomNavigation>
