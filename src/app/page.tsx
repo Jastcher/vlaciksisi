@@ -2,7 +2,7 @@
 'use client';
 
 import { useSession } from "next-auth/react";
-import { useRouter } from 'next/navigation';
+//import { useRouter } from 'next/navigation';
 import AuthedView from '@/sections/authedView';
 import NonAuthedView from '@/sections/nonAuthedView';
 
