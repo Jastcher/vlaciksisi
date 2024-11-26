@@ -10,9 +10,8 @@ import AppRegistrationIcon from '@mui/icons-material/AppRegistration';
 import LoginIcon from '@mui/icons-material/Login';
 import LogoutIcon from '@mui/icons-material/Logout';
 import { useRouter } from 'next/navigation'; // For Next.js routing
-import { useSession, signIn, signOut } from "next-auth/react"
+import { useSession, signOut } from "next-auth/react"
 import Avatar from '@mui/material/Avatar';
-import IconButton from '@mui/material/IconButton';
 
 export default function SimpleBottomNavigation() {
   const [value, setValue] = React.useState(0);

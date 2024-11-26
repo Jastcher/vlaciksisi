@@ -8,10 +8,10 @@ export const metadata = { title: "HomeView | vlak"};
 
 
 export default function AuthedView() {
-    const { data: session, status } = useSession();
+    const { data: session } = useSession();
 
   return (
-    <Typography variant="h4">Vitaj, {session.user.name}!</Typography>
+    <Typography variant="h4">Vitaj, {session?.user?.name}!</Typography>
     
   );
 }
