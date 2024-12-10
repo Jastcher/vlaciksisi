@@ -12,6 +12,10 @@ import LogoutIcon from '@mui/icons-material/Logout';
 import { useRouter } from 'next/navigation'; // For Next.js routing
 import { useSession, signOut } from "next-auth/react"
 import Avatar from '@mui/material/Avatar';
+import { Switch } from '@mui/material'; 
+import handleChange from '../providers/ThemeProvider';
+import state from '../providers/ThemeProvider';
+
 
 export default function SimpleBottomNavigation() {
   const [value, setValue] = React.useState(0);
@@ -68,6 +72,14 @@ export default function SimpleBottomNavigation() {
         )}
         {session && <BottomNavigationAction label="Odhlásenie" icon={<LogoutIcon />} onClick={() => signOut()} />}
       </BottomNavigation>
+      <div className="App"> 
+
+          <Switch 
+              checked={state} 
+              color='success'
+              onChange={handleChange} /> 
+  
+        </div> 
     </Box>
   );
 }

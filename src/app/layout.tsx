@@ -6,6 +6,7 @@ import "./globals.css";
 import Navbar from "../components/NavBar";
 import AuthProvider from "../components/AuthProvider";
 import ThemeProvider from "../providers/ThemeProvider";
+import { Box } from "@mui/material";
 
 
 export default function RootLayout({
@@ -16,16 +17,15 @@ export default function RootLayout({
   return (
     <html lang="sk">
       <body>
-        <AuthProvider>
+        <AuthProvider>          
           <ThemeProvider>
-            <div style={{ minHeight: '95vh', display: 'flex', flexDirection: 'column' }}>
-              <main style={{ flexGrow: 1 }}>
+            <Box style={{ minHeight: '95vh', display: 'flex', flexDirection: 'column' }}>
+              <Box style={{ flexGrow: 1 }}>
                 {children}
-              </main>
+              </Box>
               <Navbar /> 
-            </div>
+            </Box>
           </ThemeProvider>
-
         </AuthProvider>
       </body>
     </html>
