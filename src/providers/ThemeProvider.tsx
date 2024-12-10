@@ -5,6 +5,7 @@ import { orange } from '@mui/material/colors';
 import { green, purple } from '@mui/material/colors';
 import { CssBaseline } from '@mui/material/';
 import { useState } from 'react'; 
+import state from '../components/NavBar';
 
 
 const lightTheme = createTheme({
@@ -35,12 +36,8 @@ export default function ThemeProvider({
   }: Readonly<{
     children: React.ReactNode;
   }>) {
-    const [state, settheme] = useState(false); 
     const theme = state ? lightTheme : darkTheme;
 
-    const handleChange = (event: React.ChangeEvent<any>) => { 
-        settheme(event.target.checked); 
-    } 
     
 
     return (
