@@ -1,13 +1,11 @@
-import React, { ReactNode } from 'react'
-import Checkbox from '@mui/material/Checkbox';
-import { createTheme, ThemeProvider as TP, styled } from '@mui/material/styles';
-import { orange } from '@mui/material/colors';
-import { green, purple } from '@mui/material/colors';
-import { CssBaseline } from '@mui/material/';
-import { useState } from 'react'; 
-import state from '../components/NavBar';
+"use client";
 
+import React, { createContext, useContext, useState } from 'react';
+import { createTheme, ThemeProvider as MUIThemeProvider } from '@mui/material/styles';
+import { CssBaseline } from '@mui/material';
+import { purple, green } from '@mui/material/colors';
 
+// Define light and dark themes
 const lightTheme = createTheme({
   palette: {
     mode: 'light',
@@ -21,29 +19,42 @@ const lightTheme = createTheme({
 });
 
 const darkTheme = createTheme({
-    palette: {
-      mode: 'dark',
-      primary: {
-        main: '#ff5252',
-      },
+  palette: {
+    mode: 'dark',
+    primary: {
+      main: '#ff5252',
     },
-  });  
+  },
+});
 
+// Create a context for the theme
+const ThemeContext = createContext<{
+  isDark: boolean;
+  toggleTheme: () => void;
+}>({
+  isDark: false,
+  toggleTheme: () => {},
+});
 
+// Custom hook to use the ThemeContext
+export const useThemeContext = () => useContext(ThemeContext);
 
-export default function ThemeProvider({
-    children,
-  }: Readonly<{
-    children: React.ReactNode;
-  }>) {
-    const theme = state ? lightTheme : darkTheme;
+// ThemeProvider Component
+export default function ThemeProvider({ children }: { children: React.ReactNode }) {
+  const [isDark, setIsDark] = useState(false);
 
-    
+  const toggleTheme = () => {
+    setIsDark((prev) => !prev);
+  };
 
-    return (
-      <TP theme={theme}>
-        <CssBaseline/>
+  const theme = isDark ? darkTheme : lightTheme;
+
+  return (
+    <ThemeContext.Provider value={{ isDark, toggleTheme }}>
+      <MUIThemeProvider theme={theme}>
+        <CssBaseline />
         {children}
-        </TP>
-    )
-  }
+      </MUIThemeProvider>
+    </ThemeContext.Provider>
+  );
+}

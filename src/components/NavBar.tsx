@@ -13,13 +13,15 @@ import { useRouter } from 'next/navigation'; // For Next.js routing
 import { useSession, signOut } from "next-auth/react"
 import Avatar from '@mui/material/Avatar';
 import { Switch } from '@mui/material'; 
-import { useState } from 'react'; 
+import { useThemeContext } from '../providers/ThemeProvider';
 
 
 export default function SimpleBottomNavigation() {
   const [value, setValue] = React.useState(0);
   const router = useRouter(); // Initialize the Next.js router
   const { data: session } = useSession();
+
+  const { isDark, toggleTheme } = useThemeContext();
 
   const handleNavigation = (newValue: number) => {
     setValue(newValue);
@@ -44,12 +46,6 @@ export default function SimpleBottomNavigation() {
         break;
     }
   };
-
-  const [state, settheme] = useState(false); 
-
-  const handleChange = (event: React.ChangeEvent<any>) => { 
-    settheme(event.target.checked); 
-  } 
 
   return (
     <Box
@@ -78,10 +74,11 @@ export default function SimpleBottomNavigation() {
         {session && <BottomNavigationAction label="Odhlásenie" icon={<LogoutIcon />} onClick={() => signOut()} />}
       </BottomNavigation>
       
-      <Switch 
-          checked={state} 
-          color='success'
-          onChange={handleChange} /> 
+      <Switch
+        checked={isDark}
+        onChange={toggleTheme}
+        color="success"
+      />
   
     </Box>
   );
